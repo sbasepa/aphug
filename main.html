@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇺🇸 Tour USA</title>
+    <style>
+        /* Import custom font */
+        @font-face {
+            font-family: 'ABCMarist';
+            src: url('data/ABCMarist-Regular-Trial.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'ABCMarist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.2;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #000;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: .8rem;
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: 1rem;
+            font-weight: normal;
+            margin-bottom: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .bio {
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-size: .8rem;
+        }
+        
+        /* Layout */
+        .content {
+            margin-bottom: 1rem;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 1.5rem 0;
+        }
+        
+        /* Lists and items */
+        .list-section {
+            display: flex;
+            margin-bottom: .1rem;
+        }
+        
+        .list-title {
+            width: 300px;
+            font-size: 0.7rem;
+            color: #777;
+        }
+        
+    .list-content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+        
+        .lists-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .list-column {
+            width: 48%;
+        }
+        
+        .list-item {
+            display: flex;
+            margin-bottom: 0.1rem;
+        }
+        
+        .item-number {
+            width: 12px;
+            color: #000;
+        }
+        
+        .item-text {
+            flex: 1;
+        }
+        
+        .item-link {
+            display: flex;
+            text-decoration: none;
+            color: #000;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+        
+        .item-link:hover {
+            color: #555;
+            transform: translateX(3px);
+        }
+        
+        .arrow {
+            margin-left: auto;
+            padding-right: 1rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .item-link:hover .arrow {
+            transform: translateX(2px);
+        }
+        
+        .year {
+            text-align: right;
+            width: 100px;
+        }
+        
+        .list-item {
+            display: flex;
+            margin-bottom: 0;
+            transition: background-color 0.2s ease;
+            padding: 2px 0;
+        }
+        
+        .list-item:hover {
+            background-color: rgba(0,0,0,0.03);
+        }
+        
+        
+        /* Square markers */
+        .square-marker {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background-color: #000;
+            margin-right: 10px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div style="max-width: 530px; margin: 0 auto;">
+        <h1>Tour USA 🇺🇸</h1>
+        
+        <div class="content">
+            <p class="bio">From New York's skyscrapers, to the plains of Kansas, a country full of history, natural beauty and culture awaits.</p>
+        </div>
+        
+        <hr>
+        
+        <div class="lists-container">
+            <div class="list-column">
+                <div class="list-section">
+                    <div class="list-title">
+                        <span class="square-marker"></span>[PAGES]
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="item-number">¹</div>
+                    <div class="item-text">
+                        <a href="#" class="item-link">History & Data<span class="arrow">↗</span></a>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="item-number">²</div>
+                    <div class="item-text">
+                        <a href="#" class="item-link">National Parks<span class="arrow">↗</span></a>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="item-number">³</div>
+                    <div class="item-text">
+                        <a href="#" class="item-link">Cultures<span class="arrow">↗</span></a>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="item-number">⁴</div>
+                    <div class="item-text">
+                        <a href="#" class="item-link">Economy<span class="arrow">↗</span></a>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="item-number">⁵</div>
+                    <div class="item-text">
+                        <a href="#" class="item-link">Itinerarys<span class="arrow">↗</span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="list-column">
+                <div class="list-section">
+                    <div class="list-title">
+                        <span class="square-marker"></span>[CITYS BY REGION]
+                    </div>
+
+                </div>
+                
+                <div class="list-item">
+                    <div class="item-number">¹</div>
+                    <div class="item-text">
+                        <a href="#" class="item-link">The Northeast <span class="arrow">↗</span></a>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="item-number">²</div>
+                    <div class="item-text">
+                        <a href="#" class="item-link">The Southeast <span class="arrow">↗</span></a>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="item-number">³</div>
+                    <div class="item-text">
+                        <a href="#" class="item-link">The Midwest <span class="arrow">↗</span></a>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="item-number">⁴</div>
+                    <div class="item-text">
+                        <a href="#" class="item-link">The Southwest <span class="arrow">↗</span></a>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="item-number">⁵</div>
+                    <div class="item-text">
+                        <a href="#" class="item-link">The West<span class="arrow">↗</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
