@@ -1,258 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🇺🇸 Tour USA</title>
-    <style>
-        /* Import custom font */
-        @font-face {
+  <meta charset="UTF-8">
+  <title>Simple Box</title>
+  <style>
+    @font-face {
             font-family: 'ABCMarist';
-            src: url('data/ABCMarist-Regular-Trial.woff2') format('woff2');
+            src: url('/data/ABCMarist-Regular-Trial.woff2') format('woff2');
             font-weight: normal;
             font-style: normal;
-        }
-
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'ABCMarist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.2;
-            max-width: 700px;
-            margin: 0 auto;
-            color: #000;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            font-size: .8rem;
-        }
-        
-        /* Typography */
-        h1 {
-            font-size: 1rem;
-            font-weight: normal;
-            margin-bottom: 1.5rem;
-        }
-        
-        p {
-            margin-bottom: 0.5rem;
-        }
-        
-        .bio {
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-color: #f9f9f9; /* light background */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: ABCMarist;
+    }
+    .bio {
             color: #666;
             margin-bottom: 0.5rem;
             font-size: .8rem;
-        }
-        
-        /* Layout */
-        .content {
-            margin-bottom: 1rem;
-        }
-        
-        hr {
+    }
+
+    .box {
+      width: 600px;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      padding: 20px;
+    }
+    
+    h1 {
+        font-size: 1rem;
+        font-weight: normal;
+        margin-bottom: 1rem;
+    }
+    hr {
             border: none;
             border-top: 1px solid #ddd;
-            margin: 1.5rem 0;
-        }
-        
-        /* Lists and items */
-        .list-section {
-            display: flex;
-            margin-bottom: .1rem;
-        }
-        
-        .list-title {
-            width: 300px;
-            font-size: 0.7rem;
-            color: #777;
-        }
-        
-    .list-content {
-        flex: 1;
+            margin-top: 20px;
+    }
+    /*Dir Box*/
+    .lists-container {
         display: flex;
-        align-items: center;
-        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding-left: 5px; /* Add padding to the left */
+        padding-right: 5px; /* Add padding to the right */
+    }
+    
+    .list-column {
+        /* Base styling for all columns */
+        box-sizing: border-box;
+    }
+    
+    /* When there are 1 column */
+    .lists-container.columns-1 .list-column {
+        flex: 0 0 100%;
+    }
+    
+    /* When there are 2 columns */
+    .lists-container.columns-2 .list-column {
+        flex: 0 0 calc(50% - 5px);
+    }
+    
+    /* When there are 3 columns */
+    .lists-container.columns-3 .list-column {
+        flex: 0 0 calc(33.333% - 6.67px);
+        min-width: 180px;
+    }
+    
+    /* When there are 4 columns - first 3 in a row, 4th takes full width in a new row */
+    .lists-container.columns-4 .list-column:nth-child(1),
+    .lists-container.columns-4 .list-column:nth-child(2),
+    .lists-container.columns-4 .list-column:nth-child(3) {
+        flex: 0 0 calc(33.333% - 7px);
+    }
+    
+    .lists-container.columns-4 .list-column:nth-child(4) {
+        flex: 0 0 100%;
+    }
+    
+    .list-item {
+        display: flex;
+    }
+    
+    .item-number {
+        width: 12px;
+        color: #000;
+    }
+    
+    .item-text {
+        flex: 1;
+    }
+    
+    .item-link {
+        display: flex;
+        text-decoration: none;
+        color: #000;
+        transition: color 0.2s ease, transform 0.2s ease;
+        font-size: 0.7rem;
+    }
+    
+    .item-link:hover {
+        color: #555;
+        transform: translateX(3px);
+    }
+    
+    .arrow {
+        margin-left: auto;
+        margin-right: 5px;
+        transition: transform 0.2s ease;
+    }
+    
+    .item-link:hover .arrow {
+        transform: translateX(2px);
+    }
+    
+    .year {
+        text-align: right;
+        width: 100px;
+    }
+    
+    .list-item {
+        display: flex;
+        transition: background-color 0.2s ease;
+    }
+    
+    .list-item:hover {
+        background-color: rgba(0,0,0,0.03);
+    }
+    
+    
+    /* Square markers */
+    .square-marker {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        background-color: #000;
+        margin-right: 10px;
+    }
+    .list-section {
+        display: flex;
     }
         
-        .lists-container {
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        .list-column {
-            width: 48%;
-        }
-        
-        .list-item {
-            display: flex;
-            margin-bottom: 0.1rem;
-        }
-        
-        .item-number {
-            width: 12px;
-            color: #000;
-        }
-        
-        .item-text {
-            flex: 1;
-        }
-        
-        .item-link {
-            display: flex;
-            text-decoration: none;
-            color: #000;
-            transition: color 0.2s ease, transform 0.2s ease;
-        }
-        
-        .item-link:hover {
-            color: #555;
-            transform: translateX(3px);
-        }
-        
-        .arrow {
-            margin-left: auto;
-            padding-right: 1rem;
-            transition: transform 0.2s ease;
-        }
-        
-        .item-link:hover .arrow {
-            transform: translateX(2px);
-        }
-        
-        .year {
-            text-align: right;
-            width: 100px;
-        }
-        
-        .list-item {
-            display: flex;
-            margin-bottom: 0;
-            transition: background-color 0.2s ease;
-            padding: 2px 0;
-        }
-        
-        .list-item:hover {
-            background-color: rgba(0,0,0,0.03);
-        }
-        
-        
-        /* Square markers */
-        .square-marker {
-            display: inline-block;
-            width: 7px;
-            height: 7px;
-            background-color: #000;
-            margin-right: 10px;
-        }
-        
-
-    </style>
+    .list-title {
+        font-size: 0.7rem;
+        margin-bottom: 5px;
+        color: #777;
+    }
+  </style>
 </head>
 <body>
-    <div style="max-width: 530px; margin: 0 auto;">
-        <h1>Tour USA 🇺🇸</h1>
-        
-        <div class="content">
+  <div class="box">
+    <div class="header">
+        <div>
+            <h1>Tour USA 🇺🇸</h1>
+        </div>
+        <div>
             <p class="bio">From New York's skyscrapers, to the plains of Kansas, a country full of history, natural beauty and culture awaits.</p>
         </div>
-        
         <hr>
-        
-        <div class="lists-container">
-            <div class="list-column">
-                <div class="list-section">
-                    <div class="list-title">
-                        <span class="square-marker"></span>[PAGES]
-                    </div>
-                </div>
-                
-                <div class="list-item">
-                    <div class="item-number">¹</div>
-                    <div class="item-text">
-                        <a href="#" class="item-link">History & Data<span class="arrow">↗</span></a>
-                    </div>
-                </div>
-                
-                <div class="list-item">
-                    <div class="item-number">²</div>
-                    <div class="item-text">
-                        <a href="#" class="item-link">National Parks<span class="arrow">↗</span></a>
-                    </div>
-                </div>
-                
-                <div class="list-item">
-                    <div class="item-number">³</div>
-                    <div class="item-text">
-                        <a href="#" class="item-link">Cultures<span class="arrow">↗</span></a>
-                    </div>
-                </div>
-                
-                <div class="list-item">
-                    <div class="item-number">⁴</div>
-                    <div class="item-text">
-                        <a href="#" class="item-link">Economy<span class="arrow">↗</span></a>
-                    </div>
-                </div>
-                
-                <div class="list-item">
-                    <div class="item-number">⁵</div>
-                    <div class="item-text">
-                        <a href="#" class="item-link">Itinerarys<span class="arrow">↗</span></a>
-                    </div>
+    </div>
+    <div class="lists-container">
+        <div class="list-column">
+            <div class="list-section">
+                <div class="list-title">
+                    <span class="square-marker"></span>[PAGES]
                 </div>
             </div>
             
-            <div class="list-column">
-                <div class="list-section">
-                    <div class="list-title">
-                        <span class="square-marker"></span>[CITYS BY REGION]
-                    </div>
+            <div class="list-item">
+                <div class="item-number">¹</div>
+                <div class="item-text">
+                    <a href="#" class="item-link">History & Data<span class="arrow">↗</span></a>
+                </div>
+            </div>
+            
+            <div class="list-item">
+                <div class="item-number">²</div>
+                <div class="item-text">
+                    <a href="#" class="item-link">National Parks<span class="arrow">↗</span></a>
+                </div>
+            </div>
 
+            <div class="list-item">
+                <div class="item-number">³</div>
+                <div class="item-text">
+                    <a href="#" class="item-link">Cultures<span class="arrow">↗</span></a>
                 </div>
-                
-                <div class="list-item">
-                    <div class="item-number">¹</div>
-                    <div class="item-text">
-                        <a href="#" class="item-link">The Northeast <span class="arrow">↗</span></a>
-                    </div>
+            </div>
+
+            <div class="list-item">
+                <div class="item-number">⁴</div>
+                <div class="item-text">
+                    <a href="#" class="item-link">Economy<span class="arrow">↗</span></a>
                 </div>
-                
-                <div class="list-item">
-                    <div class="item-number">²</div>
-                    <div class="item-text">
-                        <a href="#" class="item-link">The Southeast <span class="arrow">↗</span></a>
-                    </div>
+            </div>
+
+            <div class="list-item">
+                <div class="item-number">⁵</div>
+                <div class="item-text">
+                    <a href="#" class="item-link">Itineraries<span class="arrow">↗</span></a>
                 </div>
-                
-                <div class="list-item">
-                    <div class="item-number">³</div>
-                    <div class="item-text">
-                        <a href="#" class="item-link">The Midwest <span class="arrow">↗</span></a>
-                    </div>
+            </div>
+        </div>
+        <div class="list-column">
+            <div class="list-section">
+                <div class="list-title">
+                    <span class="square-marker"></span>[CITIES BY REGION]
                 </div>
-                
-                <div class="list-item">
-                    <div class="item-number">⁴</div>
-                    <div class="item-text">
-                        <a href="#" class="item-link">The Southwest <span class="arrow">↗</span></a>
-                    </div>
+            </div>
+            
+            <div class="list-item">
+                <div class="item-number">¹</div>
+                <div class="item-text">
+                    <a href="#" class="item-link">The Northeast<span class="arrow">↗</span></a>
                 </div>
-                
-                <div class="list-item">
-                    <div class="item-number">⁵</div>
-                    <div class="item-text">
-                        <a href="#" class="item-link">The West<span class="arrow">↗</span></a>
-                    </div>
+            </div>
+            
+            <div class="list-item">
+                <div class="item-number">²</div>
+                <div class="item-text">
+                    <a href="#" class="item-link">The South<span class="arrow">↗</span></a>
+                </div>
+            </div>
+            
+            <div class="list-item">
+                <div class="item-number">³</div>
+                <div class="item-text">
+                    <a href="cities/Midwest.html" class="item-link">The Midwest<span class="arrow">↗</span></a>
+                </div>
+            </div>
+            
+            <div class="list-item">
+                <div class="item-number">⁴</div>
+                <div class="item-text">
+                    <a href="#" class="item-link">The West<span class="arrow">↗</span></a>
                 </div>
             </div>
         </div>
         
     </div>
+  </div>
+
+  <script>
+    // Function to update the column class based on number of columns
+    function updateColumnLayout() {
+      const container = document.querySelector('.lists-container');
+      const columns = container.querySelectorAll('.list-column');
+      const columnCount = columns.length;
+      
+      // Remove existing column classes
+      container.classList.remove('columns-1', 'columns-2', 'columns-3', 'columns-4');
+      
+      // Add the appropriate class based on column count
+      if (columnCount <= 4) {
+        container.classList.add(`columns-${columnCount}`);
+      } else {
+        // For more than 4 columns, use the columns-4 layout as a fallback
+        container.classList.add('columns-4');
+      }
+    }
+    
+    // Run on page load
+    document.addEventListener('DOMContentLoaded', updateColumnLayout);
+    
+    // Also run if columns are dynamically added/removed
+    // You would need to call updateColumnLayout() after any DOM changes to columns
+  </script>
 </body>
 </html>
