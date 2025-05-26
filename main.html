@@ -10,29 +10,36 @@
             font-weight: normal;
             font-style: normal;
     }
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      background-color: #f9f9f9; /* light background */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: ABCMarist;
+    html, body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+        background-color: #f9f9f9; /* light background */
+        font-family: ABCMarist;
     }
+
+    body {
+        display: flex;
+        justify-content: center;
+        padding-top: 175px; /* Fixed distance from top */
+        padding-bottom: 50px; /* Add padding at bottom for scrolling */
+    }
+
+    .box {
+        max-width: 600px;
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        padding: 20px;
+        height: auto; /* Allow height to adjust to content */
+    }
+    
     .bio {
             color: #666;
             margin-bottom: 0.5rem;
             font-size: .8rem;
     }
 
-    .box {
-      width: 600px;
-      background-color: white;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      border-radius: 4px;
-      padding: 20px;
-    }
     
     h1 {
         font-size: 1rem;
@@ -49,41 +56,16 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-        padding-left: 5px; /* Add padding to the left */
-        padding-right: 5px; /* Add padding to the right */
+        padding: 0 5px;
     }
-    
+
     .list-column {
-        /* Base styling for all columns */
+        flex: 1 1 calc(33.333% - 7px);
+        min-width: 180px; /* optional minimum width */
         box-sizing: border-box;
     }
+
     
-    /* When there are 1 column */
-    .lists-container.columns-1 .list-column {
-        flex: 0 0 100%;
-    }
-    
-    /* When there are 2 columns */
-    .lists-container.columns-2 .list-column {
-        flex: 0 0 calc(50% - 5px);
-    }
-    
-    /* When there are 3 columns */
-    .lists-container.columns-3 .list-column {
-        flex: 0 0 calc(33.333% - 6.67px);
-        min-width: 180px;
-    }
-    
-    /* When there are 4 columns - first 3 in a row, 4th takes full width in a new row */
-    .lists-container.columns-4 .list-column:nth-child(1),
-    .lists-container.columns-4 .list-column:nth-child(2),
-    .lists-container.columns-4 .list-column:nth-child(3) {
-        flex: 0 0 calc(33.333% - 7px);
-    }
-    
-    .lists-container.columns-4 .list-column:nth-child(4) {
-        flex: 0 0 100%;
-    }
     
     .list-item {
         display: flex;
@@ -156,122 +138,100 @@
   </style>
 </head>
 <body>
-  <div class="box">
-    <div class="header">
-        <div>
-            <h1>Tour USA 🇺🇸</h1>
-        </div>
-        <div>
-            <p class="bio">From New York's skyscrapers, to the plains of Kansas, a country full of history, natural beauty and culture awaits.</p>
-        </div>
-        <hr>
-    </div>
-    <div class="lists-container">
-        <div class="list-column">
-            <div class="list-section">
-                <div class="list-title">
-                    <span class="square-marker"></span>[PAGES]
-                </div>
-            </div>
-            
-            <div class="list-item">
-                <div class="item-number">¹</div>
-                <div class="item-text">
-                    <a href="#" class="item-link">History & Data<span class="arrow">↗</span></a>
-                </div>
-            </div>
-            
-            <div class="list-item">
-                <div class="item-number">²</div>
-                <div class="item-text">
-                    <a href="#" class="item-link">National Parks<span class="arrow">↗</span></a>
-                </div>
-            </div>
+  <div class="container">
+    <div class="box">
+      <div class="header">
+          <div>
+              <h1>Tour USA 🇺🇸</h1>
+          </div>
+          <div>
+              <p class="bio">From New York's skyscrapers, to the plains of Kansas, a country full of history, natural beauty and culture awaits.</p>
+          </div>
+          <hr>
+      </div>
+      <div class="lists-container">
+          <div class="list-column">
+              <div class="list-section">
+                  <div class="list-title">
+                      <span class="square-marker"></span>[PAGES]
+                  </div>
+              </div>
+              
+              <div class="list-item">
+                  <div class="item-number">¹</div>
+                  <div class="item-text">
+                      <a href="/pages/history.html" class="item-link">History<span class="arrow">↗</span></a>
+                  </div>
+              </div>
+              
+              <div class="list-item">
+                  <div class="item-number">²</div>
+                  <div class="item-text">
+                      <a href="/pages/national_parks.html" class="item-link">National Parks<span class="arrow">↗</span></a>
+                  </div>
+              </div>
 
-            <div class="list-item">
-                <div class="item-number">³</div>
-                <div class="item-text">
-                    <a href="#" class="item-link">Cultures<span class="arrow">↗</span></a>
-                </div>
-            </div>
+              <div class="list-item">
+                  <div class="item-number">³</div>
+                  <div class="item-text">
+                      <a href="/pages/data.html" class="item-link">Demographics<span class="arrow">↗</span></a>
+                  </div>
+              </div>
 
-            <div class="list-item">
-                <div class="item-number">⁴</div>
-                <div class="item-text">
-                    <a href="#" class="item-link">Economy<span class="arrow">↗</span></a>
-                </div>
-            </div>
+              <div class="list-item">
+                  <div class="item-number">⁴</div>
+                  <div class="item-text">
+                      <a href="/pages/attractions.html" class="item-link">Attractions<span class="arrow">↗</span></a>
+                  </div>
+              </div>
 
-            <div class="list-item">
-                <div class="item-number">⁵</div>
-                <div class="item-text">
-                    <a href="#" class="item-link">Itineraries<span class="arrow">↗</span></a>
-                </div>
-            </div>
-        </div>
-        <div class="list-column">
-            <div class="list-section">
-                <div class="list-title">
-                    <span class="square-marker"></span>[CITIES BY REGION]
-                </div>
-            </div>
-            
-            <div class="list-item">
-                <div class="item-number">¹</div>
-                <div class="item-text">
-                    <a href="#" class="item-link">The Northeast<span class="arrow">↗</span></a>
-                </div>
-            </div>
-            
-            <div class="list-item">
-                <div class="item-number">²</div>
-                <div class="item-text">
-                    <a href="#" class="item-link">The South<span class="arrow">↗</span></a>
-                </div>
-            </div>
-            
-            <div class="list-item">
-                <div class="item-number">³</div>
-                <div class="item-text">
-                    <a href="cities/Midwest.html" class="item-link">The Midwest<span class="arrow">↗</span></a>
-                </div>
-            </div>
-            
-            <div class="list-item">
-                <div class="item-number">⁴</div>
-                <div class="item-text">
-                    <a href="#" class="item-link">The West<span class="arrow">↗</span></a>
-                </div>
-            </div>
-        </div>
-        
+              <div class="list-item">
+                  <div class="item-number">⁵</div>
+                  <div class="item-text">
+                      <a href="/pages/itineraries.html" class="item-link">Itineraries<span class="arrow">↗</span></a>
+                  </div>
+              </div>
+          </div>
+          <div class="list-column">
+              <div class="list-section">
+                  <div class="list-title">
+                      <span class="square-marker"></span>[CITIES BY REGION]
+                  </div>
+              </div>
+              
+              <div class="list-item">
+                  <div class="item-number">¹</div>
+                  <div class="item-text">
+                      <a href="/cities/Northeast.html" class="item-link">The Northeast<span class="arrow">↗</span></a>
+                  </div>
+              </div>
+              
+              <div class="list-item">
+                  <div class="item-number">²</div>
+                  <div class="item-text">
+                      <a href="/cities/South.html" class="item-link">The South<span class="arrow">↗</span></a>
+                  </div>
+              </div>
+              
+              <div class="list-item">
+                  <div class="item-number">³</div>
+                  <div class="item-text">
+                      <a href="/cities/Midwest.html" class="item-link">The Midwest<span class="arrow">↗</span></a>
+                  </div>
+              </div>
+              
+              <div class="list-item">
+                  <div class="item-number">⁴</div>
+                  <div class="item-text">
+                      <a href="/cities/West.html" class="item-link">The West<span class="arrow">↗</span></a>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
     </div>
   </div>
 
-  <script>
-    // Function to update the column class based on number of columns
-    function updateColumnLayout() {
-      const container = document.querySelector('.lists-container');
-      const columns = container.querySelectorAll('.list-column');
-      const columnCount = columns.length;
-      
-      // Remove existing column classes
-      container.classList.remove('columns-1', 'columns-2', 'columns-3', 'columns-4');
-      
-      // Add the appropriate class based on column count
-      if (columnCount <= 4) {
-        container.classList.add(`columns-${columnCount}`);
-      } else {
-        // For more than 4 columns, use the columns-4 layout as a fallback
-        container.classList.add('columns-4');
-      }
-    }
-    
-    // Run on page load
-    document.addEventListener('DOMContentLoaded', updateColumnLayout);
-    
-    // Also run if columns are dynamically added/removed
-    // You would need to call updateColumnLayout() after any DOM changes to columns
-  </script>
+
 </body>
 </html>
