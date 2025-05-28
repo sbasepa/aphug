@@ -1,6 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Preload fonts -->
+    <link rel="preload" href="/data/ABCMarist-Regular-Trial.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <!-- Preload HTML pages -->
+    <link rel="preload" href="/pages/national_parks.html" as="document">
+    <link rel="preload" href="/pages/attractions.html" as="document">
+    <link rel="preload" href="/cities/Northeast.html" as="document">
+    <link rel="preload" href="/cities/South.html" as="document">
+    <link rel="preload" href="/cities/Midwest.html" as="document">
+    <link rel="preload" href="/cities/West.html" as="document">
+
+    <!-- Preload markdown files -->
+    <script>
+        const markdownFiles = [
+        'pages/history.md',
+        'pages/data.md',
+        'pages/itinerary.md'
+        ];
+
+        markdownFiles.forEach(file => {
+        fetch(file).catch(error => console.error(`Failed to preload ${file}:`, error));
+        });
+    </script>
+
+    <!-- Preload images -->
+    <script>
+        const imagePaths = [
+        // Add paths to your images here
+        '/images/image1.jpg',
+        '/images/image2.jpg'
+        ];
+
+        imagePaths.forEach(path => {
+        const img = new Image();
+        img.src = path;
+        });
+    </script>
   <meta charset="UTF-8">
   <title>🇺🇸 Tour USA</title>
   <style>
