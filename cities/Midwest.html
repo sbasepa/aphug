@@ -92,16 +92,22 @@
     .overlay-text {
       position: absolute;
       bottom: 0;
+      left: 0;
+      right: 0;
       background: rgba(0, 0, 0, 0.6);
       color: #fff;
-      width: 100%;
       padding: 8px;
       font-size: 0.8rem;
       text-align: center;
       opacity: 0;
       transition: opacity 0.3s ease;
+      box-sizing: border-box;
     }
-
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .image-link:hover .overlay-text {
       opacity: 1;
     }
@@ -223,7 +229,7 @@
           <a href="/main.html" class="home-button"><- Back</a>
         </div>        
         <div>
-          <p class="bio">Where charming farm towns meet bustling cities of industry, the Midwest boasts a beautiful blend of nature and urban lifestyle. (Ohio, Indiana, Illinois, Michigan, Wisconsin, Minnesota, Iowa, Missouri, North Dakota, South Dakota, Nebraska, and Kansas.)</p>
+          <p class="bio">Where charming farm towns meet bustling cities of industry, the Midwest boasts a beautiful blend of nature and urban lifestyle. </p>
         </div>
         <hr>
       </div>
@@ -268,6 +274,9 @@
         </div>
       </div>
     </div>
+    <footer style="text-align:center; margin-top: 30px; max-width: 600px; font-size: 0.9rem; color: #666;">
+      (Ohio, Indiana, Illinois, Michigan, Wisconsin, Minnesota, Iowa, Missouri, North Dakota, South Dakota, Nebraska, and Kansas.)
+    </footer> 
   </div>
 
   <!-- Popup Overlay -->

@@ -92,14 +92,16 @@
     .overlay-text {
       position: absolute;
       bottom: 0;
+      left: 0;
+      right: 0;
       background: rgba(0, 0, 0, 0.6);
       color: #fff;
-      width: 100%;
       padding: 8px;
       font-size: 0.8rem;
       text-align: center;
       opacity: 0;
       transition: opacity 0.3s ease;
+      box-sizing: border-box;
     }
 
     .image-link:hover .overlay-text {
@@ -249,9 +251,9 @@
           </a>
         </div>
         <div class="list-column">
-          <a href="javascript:void(0);" class="image-link" onclick="openPopup('Explore The Olympic National Park', 'national_parks/olympic.md')">
-            <img src="/pages/national_parks/olympic_cover.jpg" alt="Olympic">
-            <div class="overlay-text">Olympic, Washington</div>
+          <a href="javascript:void(0);" class="image-link" onclick="openPopup('Explore Yosemite', 'national_parks/yosemite.md')">
+            <img src="/pages/national_parks/yosemite_cover.jpg" alt="Yosemite">
+            <div class="overlay-text">Yosemite, Washington</div>
           </a>
         </div>
         <div class="list-column">
